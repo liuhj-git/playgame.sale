@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Survivors - Survive the Endless Monster Hordes | Play Online for Free</title>
+    <meta name="description" content="Play Monster Survivors online for free! Fight through endless waves of monsters, upgrade your character, and see how long you can survive in this action-packed game.">
+    <link rel="canonical" href="https://playgame.sale/">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --apple-blue: #007AFF;
+            --apple-green: #34C759;
+            --apple-indigo: #5856D6;
+            --apple-orange: #FF9500;
+            --apple-pink: #FF2D55;
+            --apple-purple: #AF52DE;
+            --apple-red: #FF3B30;
+            --apple-teal: #5AC8FA;
+            --apple-yellow: #FFCC00;
+            --apple-gray: #8E8E93;
+            --apple-bg-dark: #1C1C1E;
+            --apple-bg-light: #F2F2F7;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--apple-bg-light);
+            color: #333;
+        }
+        
+        .game-container {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .game-container:hover {
+            box-shadow: 0 8px 20px rgba(0, 122, 255, 0.15);
+        }
+        
+        .btn-primary {
+            background-color: var(--apple-blue);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0062cc;
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-out;
+        }
+        
+        .btn-primary:hover:after {
+            transform: translateX(0);
+        }
+        
+        .game-feature {
+            border-left: 4px solid var(--apple-indigo);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        
+        .game-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-header {
+            border-bottom: 2px solid var(--apple-teal);
+            color: var(--apple-blue);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            letter-spacing: -0.025em;
+        }
+        
+        a:focus, button:focus, input:focus, textarea:focus {
+            outline: 2px solid var(--apple-blue);
+            outline-offset: 2px;
+        }
+        
+        @media (max-width: 640px) {
+            .game-iframe {
+                height: 400px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .text-lg {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .game-iframe {
+                height: 500px;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .game-iframe {
+                height: 600px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        main section {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        main section:nth-child(1) { animation-delay: 0.1s; }
+        main section:nth-child(2) { animation-delay: 0.2s; }
+        main section:nth-child(3) { animation-delay: 0.3s; }
+        main section:nth-child(4) { animation-delay: 0.4s; }
+        main section:nth-child(5) { animation-delay: 0.5s; }
+        
+        @media print {
+            .game-container, 
+            .btn-primary, 
+            nav,
+            footer {
+                display: none;
+            }
+            
+            body {
+                background-color: white;
+                color: black;
+            }
+            
+            main {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --custom-bg: var(--apple-bg-dark);
+                --custom-text: white;
+            }
+            
+            body.dark-mode-support {
+                background-color: var(--custom-bg);
+                color: var(--custom-text);
+            }
+            
+            body.dark-mode-support .bg-white {
+                background-color: #2C2C2E;
+            }
+            
+            body.dark-mode-support .text-gray-800,
+            body.dark-mode-support .text-gray-700,
+            body.dark-mode-support .text-gray-600 {
+                color: #D1D1D6;
+            }
+            
+            body.dark-mode-support .border-gray-200 {
+                border-color: #3A3A3C;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <header class="mb-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <a href="/" class="text-3xl font-bold text-gray-800 hover:text-blue-600">
+                        PlayGame<span class="text-blue-600">.Sale</span>
+                    </a>
+                </div>
+                <nav>
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Home</a></li>
+                        <li><a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a></li>
+                        <li><a href="#features" class="text-gray-700 hover:text-blue-600 font-medium">Features</a></li>
+                        <li><a href="#controls" class="text-gray-700 hover:text-blue-600 font-medium">Controls</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-center">Monster Survivors</h1>
+                <p class="text-xl text-center text-gray-600 mb-8">Survive the endless hordes of monsters in this action-packed adventure game!</p>
+                
+                <div class="game-container p-2 md:p-4 mb-8">
+                    <iframe src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
+                            class="w-full game-iframe border-0" 
+                            frameborder="0" 
+                            allowfullscreen 
+                            allow="autoplay; fullscreen">
+                    </iframe>
+                </div>
+                
+                <div class="flex justify-center">
+                    <a href="#play" class="btn-primary text-white font-bold py-3 px-6 rounded-full text-lg">Play Now</a>
+                </div>
+            </section>
+            
+            <section id="about" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 section-header pb-2">About Monster Survivors</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-lg mb-4">
+                            Monster Survivors is an action-packed survival game where you face waves of increasingly difficult monsters. Your goal is simple: survive as long as possible while defeating hordes of enemies.
+                        </p>
+                        <p class="text-lg mb-4">
+                            With each level, you'll gain new abilities, weapons, and power-ups that will help you fight against the ever-growing monster population. Can you become the ultimate survivor?
+                        </p>
+                    </div>
+                    <div>
+                        <p class="text-lg mb-4">
+                            This fast-paced game combines elements of roguelike games with arcade action. Each playthrough is unique, with randomized power-ups and enemy spawns making every game a new challenge.
+                        </p>
+                        <p class="text-lg">
+                            Perfect for quick gaming sessions or extended plays, Monster Survivors offers endless replayability and excitement for gamers of all skill levels.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="features" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 section-header pb-2">Game Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="game-feature bg-white p-6 rounded-lg shadow-md pl-8">
+                        <h3 class="text-xl font-bold mb-3 text-indigo-700">Endless Gameplay</h3>
+                        <p>Face wave after wave of monsters in an endless survival challenge that gets progressively harder.</p>
+                    </div>
+                    <div class="game-feature bg-white p-6 rounded-lg shadow-md pl-8">
+                        <h3 class="text-xl font-bold mb-3 text-indigo-700">Character Upgrades</h3>
+                        <p>Collect experience and power-ups to upgrade your character's abilities and weapons.</p>
+                    </div>
+                    <div class="game-feature bg-white p-6 rounded-lg shadow-md pl-8">
+                        <h3 class="text-xl font-bold mb-3 text-indigo-700">Variety of Enemies</h3>
+                        <p>Fight against different types of monsters, each with unique behaviors and attack patterns.</p>
+                    </div>
+                    <div class="game-feature bg-white p-6 rounded-lg shadow-md pl-8">
+                        <h3 class="text-xl font-bold mb-3 text-indigo-700">Special Abilities</h3>
+                        <p>Unlock and upgrade special abilities that can help you survive against overwhelming odds.</p>
+                    </div>
+                    <div class="game-feature bg-white p-6 rounded-lg shadow-md pl-8">
+                        <h3 class="text-xl font-bold mb-3 text-indigo-700">Leaderboards</h3>
+                        <p>Compete with players worldwide to achieve the highest score and longest survival time.</p>
+                    </div>
+                    <div class="game-feature bg-white p-6 rounded-lg shadow-md pl-8">
+                        <h3 class="text-xl font-bold mb-3 text-indigo-700">Achievements</h3>
+                        <p>Complete various challenges and earn achievements to showcase your gaming prowess.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="controls" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 section-header pb-2">Game Controls</h2>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-blue-600">Movement</h3>
+                            <ul class="space-y-2 text-lg">
+                                <li><span class="font-bold">WASD</span> or <span class="font-bold">Arrow Keys</span>: Move your character</li>
+                                <li><span class="font-bold">Space</span>: Dash/Dodge</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-blue-600">Combat</h3>
+                            <ul class="space-y-2 text-lg">
+                                <li><span class="font-bold">Mouse</span>: Aim</li>
+                                <li><span class="font-bold">Left Click</span>: Basic attack</li>
+                                <li><span class="font-bold">E</span>: Special ability</li>
+                                <li><span class="font-bold">Q</span>: Switch weapons</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="play" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 section-header pb-2">Play Monster Survivors Now!</h2>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <p class="text-xl mb-6">
+                        Ready to take on the challenge? Start playing Monster Survivors right now in your browser - no downloads required!
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Game progress is saved automatically. You can return anytime to continue your adventure.
+                    </p>
+                    <div class="flex justify-center">
+                        <a href="#" onclick="scrollToGame()" class="btn-primary text-white font-bold py-3 px-8 rounded-full text-xl">Start Game</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="mt-12 pt-8 border-t border-gray-200">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">PlayGame.Sale</h3>
+                    <p class="text-gray-600">
+                        The best destination for free online browser games. Play instantly without downloads or installations.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800">Home</a></li>
+                        <li><a href="#about" class="text-blue-600 hover:text-blue-800">About</a></li>
+                        <li><a href="#features" class="text-blue-600 hover:text-blue-800">Features</a></li>
+                        <li><a href="#controls" class="text-blue-600 hover:text-blue-800">Controls</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800">Privacy Policy</a></li>
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800">Terms of Service</a></li>
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center py-4 border-t border-gray-200">
+                <p class="text-gray-600">
+                    &copy; 2023 PlayGame.Sale. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToGame() {
+            const gameContainer = document.querySelector('.game-container');
+            if (gameContainer) {
+                gameContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html> 
